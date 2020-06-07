@@ -1,0 +1,14 @@
+:root {
+  --bg-black: #070D0D;
+  --primary: #60005D;
+  --primary-light: #A3009B;
+  --secondary: #00d0ff;
+  --secondary-light: #00FFD8;
+}
+
+html, body { margin: 0; padding: 0; width: 100%; }
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+@media screen and (max-width: 420px){
+  body { font-size: 12px; }
+}
