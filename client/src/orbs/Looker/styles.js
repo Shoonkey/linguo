@@ -6,6 +6,7 @@ export const Container = styled(motion.div)`
   position: relative;
 
   input {
+    box-sizing: border-box;
     background: transparent;
     color: #e2e2e2;
   
@@ -16,15 +17,19 @@ export const Container = styled(motion.div)`
     
     transition: border-color .3s, background-color .3s;
   
-    width: 70vw;
-    min-width: 300px; max-width: 800px;
+    min-width: 250px; max-width: 800px;
+    width: 60vw;
+
+    @media screen and (max-width: 720px){ width: 85vw; }
+
+    margin: 0 8px;
   
     line-height: 2em;
-    font-size: 1.2em;
+    font-size: 1em;
     text-indent: .5em;
     letter-spacing: 1px;
 
-    padding-right: 2em; /* a padding to compensate for the space the clear button takes */
+    padding-right: 2.4em; /* a padding to compensate for the space the clear button takes */
   
     &:focus {
       caret-color: var(--secondary);
@@ -51,7 +56,7 @@ export const Container = styled(motion.div)`
     background: transparent;
     border: none;
 
-    top: 8px;   /* center button on input */
+    top: 2px;   /* center button on input */
     right: 8px; /* move button into input */
 
     font-size: 2em; 
