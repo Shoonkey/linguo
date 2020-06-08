@@ -1,85 +1,17 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { v4 as uuid } from 'uuid';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
-import Looker from './orbs/Looker';
-import NotificationCenter from './orbs/NotificationCenter';
-
-// const NOTIF_TIMEOUT = 6000;
-
-function removeFromArrayAt(array, idx){
-  const leftChunk = array.slice(0, idx);
-  const rightChunk = array.slice(idx + 1);
-
-  return leftChunk.concat(rightChunk);
-}
+import Home from './spells/Home';
 
 function App() {
 
-  const [searching, setSearchingState] = useState(false);
-  const [notifs, setNotifs] = useState([]);
-
-  const notify = content => {
-    const key = uuid();
-
-    setNotifs([
-      ...notifs, 
-      { 
-        id: key, 
-        content, 
-        // timeout: setTimeout(() => dismissNotif(key), NOTIF_TIMEOUT) 
-      }
-    ]);
-  }
-
-  const dismissNotif = id => {
-
-    const notifIdx = notifs.findIndex(notif => notif.id === id);
-    
-    if (notifIdx === -1){
-      console.warn(`Notification #${id} not found`);
-      return;
-    }
-    
-    // clearTimeout(notifs[notifIdx].timeout);
-    const updatedList = removeFromArrayAt(notifs, notifIdx);
-    setNotifs(updatedList);
-
-  }
-
   return (
     <div className="App">
-      <motion.h1
-        variants={{
-          initial: { opacity: 1, height: "auto" },
-          hidden: { opacity: 0, height: 0 }
-        }} 
-        transition={{ duration: .3, ease: "easeOut" }}
-        animate={searching ? "hidden" : "initial"}
-        className="title"
-      >
-        Linguo
-      </motion.h1>
-      <Looker 
-        placeholder="So... what'r'ya' lookin for?"
-        variants={{
-          initial: { y: 0 },
-          top: { y: "-40vh" }
-        }}
-        animate={searching ? "top" : "initial"}
-        transition={{ duration: .5, ease: "easeOut" }}
-        onFocus={() => setSearchingState(true)} 
-        onBlur={str => str.length === 0 && setSearchingState(false)}
-        onClear={() => { 
-          setSearchingState(false); 
-          notify("Cleared.");
-        }}
-      />
-      <NotificationCenter 
-        notifications={notifs}
-        onDismiss={id => dismissNotif(id)}
-      />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route>404</Route>
+      </Switch>
     </div>
   );
 }
