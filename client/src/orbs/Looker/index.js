@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
 
 import ClearButton from './ClearButton';
 import { Container } from './styles';
 
+const api = axios.create({ baseURL: "http://localhost:8000" });
+
+function getWords(substring, cb) {
+  if (substring.length > 0)
+    api.get("/word/search", { params: { q: substring } })
+    .then(res => res.data)
+    .then(response => cb(response.words))
+    .catch(console.error);
+}
+
 function Looker({ onFocus, onBlur, onClear, placeholder, ...props }) {
 
   const [input, setInput] = useState("");
+  const [results, setResults] = useState(null);
+  
   const clear = () => {
     setInput("");
     onClear();
   }
+
+  useEffect(() => getWords(input, setResults), [input]);
 
   return (
     <Container {...props}>
@@ -23,10 +38,10 @@ function Looker({ onFocus, onBlur, onClear, placeholder, ...props }) {
         onChange={e => setInput(e.target.value)}
       />
       <AnimatePresence>
-        { input.length > 0 && <ClearButton onClick={clear} /> }
+        { input && <ClearButton onClick={clear} /> }
       </AnimatePresence>
       <ul className="result-container">
-        { input && <li>{input}</li> }
+        { results && results.map((r, idx) => <li key={"word-"+r}>{r}</li>) }
       </ul>
     </Container>
   );

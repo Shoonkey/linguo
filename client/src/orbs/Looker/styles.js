@@ -45,10 +45,17 @@ export const Container = styled(motion.div)`
 
   .result-container, .input-clear-button { position: absolute; }
 
-  .result-container li {
-    border: solid 1px var(--primary);
-    margin: 4px 0;
-    padding: 1em;
+  .result-container {
+
+    list-style-type: none;
+
+    li {
+     background: var(--notification-grey);
+     border: solid 1px var(--primary);
+     margin: 4px 0;
+     padding: 1em;
+     font-size: 1rem;
+   }
   }
 
   .input-clear-button { 
