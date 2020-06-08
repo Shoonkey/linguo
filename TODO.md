@@ -4,6 +4,9 @@
   - Build a proper dropdown to contain the search results
   - Build a page for showing meanings
 
+- Searchbar
+  - Implement throttling on the API calls from the searchbar
+
 - Notifications
   - Make notifications close themselves by default after a few seconds
   - Fix stuttering on the mount animation of notifications
