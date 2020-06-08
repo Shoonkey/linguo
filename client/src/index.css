@@ -1,9 +1,13 @@
 :root {
   --bg-black: #070D0D;
+
   --primary: #60005D;
   --primary-light: #A3009B;
   --secondary: #00d0ff;
   --secondary-light: #00FFD8;
+
+  --notification-black: #20202033;
+  --notification-grey: #20202077;
 }
 
 html, body { margin: 0; padding: 0; width: 100%; }
