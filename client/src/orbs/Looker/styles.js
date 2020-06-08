@@ -47,15 +47,29 @@ export const Container = styled(motion.div)`
 
   .result-container {
 
+    width: 100%;
     list-style-type: none;
+    padding-left: 0;
 
-    li {
-     background: var(--notification-grey);
-     border: solid 1px var(--primary);
-     margin: 4px 0;
-     padding: 1em;
-     font-size: 1rem;
-   }
+    li a {
+      display: block;
+      color: inherit; 
+      text-decoration: none;
+
+      background: var(--notification-grey);
+      border-left: solid 2px var(--secondary);
+      margin: 8px 0;
+      padding: 1em;
+      font-size: 1rem;
+
+      transition: transform .3s;
+
+      &:hover {
+        background: var(--notification-black);
+        color: var(--primary-light);
+        transform: translateX(8px);
+      }
+    }
   }
 
   .input-clear-button { 
@@ -67,11 +81,11 @@ export const Container = styled(motion.div)`
     right: 8px; /* move button into input */
 
     font-size: 2em; 
-    color: var(--secondary);
+    color: var(--secondary-light);
 
     &:hover {
       cursor: pointer;
-      color: var(--secondary-light);
+      color: var(--secondary);
     }
 
     &:focus { outline: none; }
