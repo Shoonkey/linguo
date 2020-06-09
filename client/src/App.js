@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import Home from './spells/Home';
+import Meaning from './spells/Meaning';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path='/' component={Home} />
+        <Route path='/meaning/:word' component={Meaning} />
         <Route>404</Route>
       </Switch>
     </div>
