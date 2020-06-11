@@ -6,6 +6,17 @@ import ClearButton from './ClearButton';
 import { getWords } from '../../util/api';
 import { Container } from './styles';
 
+function blurOnEscape(e, clearFn){
+
+  const { target, key } = e;
+
+  if (key === "Escape"){
+    clearFn();
+    target.blur();
+  }
+
+}
+
 function Looker({ onFocus, onBlur, onClear, placeholder, ...props }) {
 
   const [input, setInput] = useState("");
@@ -24,6 +35,7 @@ function Looker({ onFocus, onBlur, onClear, placeholder, ...props }) {
         type="text" 
         onFocus={() => onFocus(input)} 
         onBlur={() => onBlur(input)} 
+        onKeyDown={e => blurOnEscape(e, clear)}
         placeholder={placeholder} 
         value={input}
         onChange={e => setInput(e.target.value)}
