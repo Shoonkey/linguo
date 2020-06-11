@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 
 import Looker from '../../orbs/Looker';
 import NotificationCenter from '../../orbs/NotificationCenter';
+import AboutOverlay from '../../orbs/AboutOverlay';
 import { Container } from './styles';
 
 // const NOTIF_TIMEOUT = 6000;
@@ -50,6 +51,7 @@ function Home() {
 
   return (
     <Container id="homepage">
+      { !searching && <AboutOverlay /> }
       <motion.h1
         variants={{
           initial: { opacity: 1, height: "auto" },

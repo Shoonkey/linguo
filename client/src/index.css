@@ -1,5 +1,6 @@
 :root {
   --bg-black: #070D0D;
+  --overlay-black: #1a1a1a;
 
   --primary: #60005D;
   --primary-light: #A3009B;
@@ -10,6 +11,9 @@
 
   --notification-black: #20202033;
   --notification-grey: #20202077;
+
+  --heart-pink: #EA00EA;
+  --heart-red: #96002d;
 }
 
 html, body { margin: 0; padding: 0; width: 100%; }

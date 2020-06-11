@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import BackButton from '../../orbs/BackButton';
+import AboutOverlay from '../../orbs/AboutOverlay';
 import { getMeaning } from '../../util/api';
 import { Container } from './styles';
 
@@ -13,6 +14,7 @@ function Meaning() {
 
   return (
     <Container>
+      <AboutOverlay />
       <main className="word-container">
         <BackButton className="back-btn" />
         <h1 className="word">{word}</h1>
