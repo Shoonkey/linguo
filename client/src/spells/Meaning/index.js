@@ -9,7 +9,7 @@ function Meaning() {
   const { word } = useParams();
   const [meaning, setMeaning] = useState(null);
 
-  useEffect(() => getMeaning(word, setMeaning), []);
+  useEffect(() => getMeaning(word, setMeaning), [word]);
 
   return (
     <Container>
