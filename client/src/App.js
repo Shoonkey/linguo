@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import './App.css';
 import Home from './spells/Home';
 import Meaning from './spells/Meaning';
 
