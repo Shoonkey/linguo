@@ -37,15 +37,9 @@ function AboutOverlay() {
             My intention was to build something that feels modern but doesn't land too far from
             known UI patterns on the web.
           </p>
-          <p className="description">
-            I've based most of the colors on the ones on Twitch (except for the light blues on the
-            searchbar), and I really liked how it turned out!
-          </p>
           <footer>
-            <p className="description">
-              Made with <Icon name="heart" size="large" class="heart" aria-label="Love" />{" "}
-              by <a href="https://shoonkey.dev" title="My portfolio link">shoonkey</a>
-            </p>
+            Made with <Icon name="heart" size="large" class="heart" aria-label="Love" />{" "}
+            by <a href="https://shoonkey.dev" title="My portfolio link">shoonkey</a>
           </footer>
         </div>
       )}

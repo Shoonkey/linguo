@@ -43,7 +43,7 @@ export const Container = styled.div`
 
     .description {
       font-size: .9em;
-      padding: 1em 3em;
+      padding: .5em 3em;
 
       strong { color: var(--primary-light); }
     }
@@ -52,6 +52,10 @@ export const Container = styled.div`
       position: absolute;
       width: 100%;
       bottom: 0;
+      right: 0;
+
+      margin-right: 1em;
+      margin-bottom: 1em;
 
       text-align: right;
       font-size: .8em;
